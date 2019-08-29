@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Ebi_MadLibs</string>\
+    <string name="header">Ebi\'s Waky Madlibs!</string>
+    <string name="title_activity_info_side">InfoSide</string>
+</resources>
