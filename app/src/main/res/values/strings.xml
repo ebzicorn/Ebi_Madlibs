@@ -1,5 +1,13 @@
 <resources>
     <string name="app_name">Ebi_MadLibs</string>\
     <string name="header">Ebi\'s Waky Madlibs!</string>
-    <string name="title_activity_info_side">InfoSide</string>
+    <string name="story1">There was once a teacher named </string>
+    <string name="story2"> . They were </string>
+    <string name="story3"> years old and had </string>
+    <string name="story4"> students one year. The students loved </string>
+    <string name="story5"> which made </string>
+    <string name="story6"> very upset because that meant they weren\'t doing their work. So </string>
+    <string name="story7"> made the students " + myVerb + " to teach them a lesson.</string>
+    <string name="story8"> The students learned their lesson, and never talked about </string>
+    <string name="story9"> again.</string>
 </resources>
