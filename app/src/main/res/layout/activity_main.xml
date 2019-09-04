@@ -144,6 +144,7 @@
         android:layout_marginBottom="8dp"
         android:gravity="center"
         android:text="Show Story!"
+        android:onClick="sendInfo"
         app:layout_constraintBottom_toTopOf="@+id/userTextView"
         app:layout_constraintEnd_toStartOf="@+id/shareButton"
         app:layout_constraintStart_toStartOf="parent" />
@@ -156,6 +157,7 @@
         android:layout_marginBottom="8dp"
         android:gravity="center"
         android:text="Share Story!"
+        android:onClick="shareInfo"
         app:layout_constraintBottom_toTopOf="@+id/userTextView"
         app:layout_constraintEnd_toEndOf="parent" />
 
