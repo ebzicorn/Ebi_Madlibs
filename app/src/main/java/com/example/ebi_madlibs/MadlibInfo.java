@@ -25,10 +25,12 @@ public class MadlibInfo extends AppCompatActivity {
         String myNum = intent.getStringExtra(MY_NUM);
 
 
-        String strToDisplay = getString(R.string.story1) + myName;
-        //+ myName + "@string/story2" + myAge + "@string/story3" + myNum + "@string/story4" + myNoun +
-        //"@string/story4" + myName + "@string/story5" + myName + "@string/story6" + myVerb + "@string/story7" +
-        //"@string/story8" + myNoun + "@string/story9";
+        String strToDisplay = getString(R.string.story1) + " "+  myName + " " + getString(R.string.story2) + " " +
+                myAge + " " + getString(R.string.story3) + " "+ myNum + " " +
+                getString(R.string.story4) + " " + myNoun + " " + getString(R.string.story4)+ " " + myName + " " +
+                getString(R.string.story5)+ " " + myName + " " +
+                getString(R.string.story6) + " " + myVerb + " "+ getString(R.string.story7) + " "+
+                getString(R.string.story8) + " " + myNoun + " " + getString(R.string.story9);
 
         //Log.i("Ebi", strToDisplay);
 
