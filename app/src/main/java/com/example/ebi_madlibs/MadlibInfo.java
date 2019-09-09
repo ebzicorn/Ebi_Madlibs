@@ -20,19 +20,29 @@ public class MadlibInfo extends AppCompatActivity {
         setContentView(R.layout.activity_madlib_info);
 
         Intent intent = getIntent();
-                String myName = " ";
-                String myAge = " ";
-                String myNoun =" ";
-                String myVerb = " ";
-                String myNum =" ";
-        try{
-             myName = intent.getStringExtra(MY_NAME);
-             myAge = intent.getStringExtra(MY_AGE);
-             myNoun = intent.getStringExtra(MY_NOUN);
-             myVerb = intent.getStringExtra(MY_VERB);
-             myNum = intent.getStringExtra(MY_NUM);
+                String myName = "";
+                String myAge = "";
+                String myNoun ="";
+                String myVerb = "";
+                String myNum ="";
+        myName = intent.getStringExtra(MY_NAME);
+        myAge = intent.getStringExtra(MY_AGE);
+        myNoun = intent.getStringExtra(MY_NOUN);
+        myVerb = intent.getStringExtra(MY_VERB);
+        myNum = intent.getStringExtra(MY_NUM);
+        String strToDisplay ="";
+        if(myName.length() != 0 &&  myAge.length() != 0 &&  myNoun.length() != 0 &&  myVerb.length() != 0 &&  myNum.length() != 0){
+
+             strToDisplay = getString(R.string.story1) + " "+  myName + " ." + myName + " "+ getString(R.string.story2) + " " +
+                    myAge + " " + getString(R.string.story3) + " "+ myNum + " " +
+                    getString(R.string.story4) + " " + myNoun + " "  +
+                    getString(R.string.story5)+ " " + myName + " " +
+                    getString(R.string.story6) + " " + myName + " "+ getString(R.string.story7) + " "+ myVerb + " " +
+                    getString(R.string.story8) + " " + myNoun + " " + getString(R.string.story9);
+            TextView str = (TextView) findViewById(R.id.info);
+            str.setText(strToDisplay);
         }
-        catch(Exception e)
+        else
         {
             Context context = getApplicationContext();
             CharSequence text = "Please fill out all words!";
@@ -44,16 +54,10 @@ public class MadlibInfo extends AppCompatActivity {
 
 
 
-        String strToDisplay = getString(R.string.story1) + " "+  myName + " " + getString(R.string.story2) + " " +
-                myAge + " " + getString(R.string.story3) + " "+ myNum + " " +
-                getString(R.string.story4) + " " + myNoun + " " + getString(R.string.story4)+ " " + myName + " " +
-                getString(R.string.story5)+ " " + myName + " " +
-                getString(R.string.story6) + " " + myVerb + " "+ getString(R.string.story7) + " "+
-                getString(R.string.story8) + " " + myNoun + " " + getString(R.string.story9);
+
 
         //Log.i("Ebi", strToDisplay);
 
-        TextView str = (TextView) findViewById(R.id.info);
-        str.setText(strToDisplay);
+
     }
 }

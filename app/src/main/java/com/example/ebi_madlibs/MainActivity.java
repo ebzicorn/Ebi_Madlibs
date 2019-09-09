@@ -49,19 +49,34 @@ public class MainActivity extends AppCompatActivity {
         EditText editText4 = (EditText) findViewById(R.id.verbEditText);
         EditText editText5 = (EditText) findViewById(R.id.numberEditText);
 
-        String myNameStr = " ";
-        String myAgeStr= " ";
-        String myNumStr= " ";
-        String myNounStr= " ";
-        String myVerbStr= " ";
-        try{
-             myNameStr = editText1.getText().toString();
-             myAgeStr = editText2.getText().toString();
-             myNounStr = editText3.getText().toString();
-             myVerbStr = editText4.getText().toString();
-             myNumStr = editText5.getText().toString();
+        String myNameStr = "";
+        String myAgeStr= "";
+        String myNumStr= "";
+        String myNounStr= "";
+        String myVerbStr= "";
+        myNameStr = editText1.getText().toString();
+        myAgeStr = editText2.getText().toString();
+        myNounStr = editText3.getText().toString();
+        myVerbStr = editText4.getText().toString();
+        myNumStr = editText5.getText().toString();
+        String myMessage = "";
+
+        if(myNameStr.length() != 0 &&  myAgeStr.length() != 0 &&  myNounStr.length() != 0 &&  myVerbStr.length() != 0 &&  myNumStr.length() != 0){
+             myMessage = "@string/story1" + " " + myNameStr + " . " + myNameStr
+                    + " " +"@string/story2"  + " " + myAgeStr + " " +
+                    "@string/story3"+ " " + myNumStr  + " " + "@string/story4" + " " + myNounStr  + " " +
+                    "@string/story5" + " " + myNameStr + " " +
+                    "@string/story6" + " " + myNameStr + " " + "@string/story7" + " "  + myVerbStr +
+                    "@string/story8" + " " + myNounStr  + " " + "@string/story9";
+
+            Intent intent = new Intent(Intent.ACTION_SEND);
+            intent.setType("text/plain");
+            intent.putExtra(Intent.EXTRA_TEXT, myMessage);
+            String chooserTitle = getString(R.string.chooser);
+            Intent chosenIntent = Intent.createChooser(intent, chooserTitle);
+            startActivity(chosenIntent);
         }
-        catch(Exception e)
+        else
         {
             Context context = getApplicationContext();
             CharSequence text = "Please fill out all words!";
@@ -70,20 +85,6 @@ public class MainActivity extends AppCompatActivity {
             Toast toast = Toast.makeText(context, text, duration);
             toast.show();
         }
-
-        String myMessage = "@string/story1" + " " + myNameStr + " . " + myNameStr
-                + " " +"@string/story2"  + " " + myAgeStr + " " +
-                "@string/story3"+ " " + myNumStr  + " " + "@string/story4" + " " + myNounStr  + " " +
-                "@string/story5" + " " + myNameStr + " " +
-                "@string/story6" + " " + myNameStr + " " + "@string/story7" + " "  + myVerbStr +
-                "@string/story8" + " " + myNounStr  + " " + "@string/story9";
-
-        Intent intent = new Intent(Intent.ACTION_SEND);
-        intent.setType("text/plain");
-        intent.putExtra(Intent.EXTRA_TEXT, myMessage);
-        String chooserTitle = getString(R.string.chooser);
-        Intent chosenIntent = Intent.createChooser(intent, chooserTitle);
-        startActivity(chosenIntent);
 
     }
 }
