@@ -2,10 +2,12 @@ package com.example.ebi_madlibs;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -47,15 +49,34 @@ public class MainActivity extends AppCompatActivity {
         EditText editText4 = (EditText) findViewById(R.id.verbEditText);
         EditText editText5 = (EditText) findViewById(R.id.numberEditText);
 
-        String myNameStr = editText1.getText().toString();
-        String myAgeStr = editText2.getText().toString();
-        String myNounStr = editText3.getText().toString();
-        String myVerbStr = editText4.getText().toString();
-        String myNumStr = editText5.getText().toString();
+        String myNameStr = " ";
+        String myAgeStr= " ";
+        String myNumStr= " ";
+        String myNounStr= " ";
+        String myVerbStr= " ";
+        try{
+             myNameStr = editText1.getText().toString();
+             myAgeStr = editText2.getText().toString();
+             myNounStr = editText3.getText().toString();
+             myVerbStr = editText4.getText().toString();
+             myNumStr = editText5.getText().toString();
+        }
+        catch(Exception e)
+        {
+            Context context = getApplicationContext();
+            CharSequence text = "Please fill out all words!";
+            int duration = Toast.LENGTH_SHORT;
 
-        String myMessage = "@string/story1" + myNameStr + "@string/story2" + myAgeStr  + "@string/story3" + myNumStr  + "@string/story4" + myNounStr  +
-                "@string/story4" + myNameStr  + "@string/story5" + myNameStr  + "@string/story6" + myVerbStr  + "@string/story7" +
-                "@string/story8" + myNounStr  + "@string/story9";
+            Toast toast = Toast.makeText(context, text, duration);
+            toast.show();
+        }
+
+        String myMessage = "@string/story1" + " " + myNameStr + " . " + myNameStr
+                + " " +"@string/story2"  + " " + myAgeStr + " " +
+                "@string/story3"+ " " + myNumStr  + " " + "@string/story4" + " " + myNounStr  + " " +
+                "@string/story5" + " " + myNameStr + " " +
+                "@string/story6" + " " + myNameStr + " " + "@string/story7" + " "  + myVerbStr +
+                "@string/story8" + " " + myNounStr  + " " + "@string/story9";
 
         Intent intent = new Intent(Intent.ACTION_SEND);
         intent.setType("text/plain");
